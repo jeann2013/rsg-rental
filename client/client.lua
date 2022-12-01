@@ -7,11 +7,11 @@ local spawn = nil
 -- prompts
 Citizen.CreateThread(function()
     for rentals, v in pairs(Config.RentalLocations) do
-		local name = v.name
-		local location = v.location
-		local spawn = v.spawn
+        local name = v.name
+        local location = v.location
+        local spawn = v.spawn
         exports['qr-core']:createPrompt(v.location, v.coords, QRCore.Shared.Keybinds['J'], 'Open ' .. v.name, {
-			type = 'client',
+            type = 'client',
             event = 'rsg-rental:client:menu',
             args = { name, location, spawn },
         })
@@ -19,8 +19,21 @@ Citizen.CreateThread(function()
             local RentalBlip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.coords)
             SetBlipSprite(RentalBlip, GetHashKey(Config.Blip.blipSprite), true)
             SetBlipScale(RentalBlip, Config.Blip.blipScale)
-			Citizen.InvokeNative(0x9CB1A1623062F402, RentalBlip, Config.Blip.blipName)
+            Citizen.InvokeNative(0x9CB1A1623062F402, RentalBlip, Config.Blip.blipName)
         end
+    end
+end)
+
+-- draw marker if set to true in config
+CreateThread(function()
+    while true do
+        local sleep = 0
+        for rentals, v in pairs(Config.RentalLocations) do
+            if v.showmarker == true then
+                Citizen.InvokeNative(0x2A32FAA57B937173, 0x07DCE236, v.coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 255, 215, 0, 155, false, false, false, 1, false, false, false)
+            end
+        end
+        Wait(sleep)
     end
 end)
 
@@ -34,155 +47,155 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
         {
             header = "Wooden Cart 1",
             txt = "rent this cart for $"..Config.CartRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "CART03",
-					spawn = spawn,
-					price = Config.CartRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "CART03",
+                    spawn = spawn,
+                    price = Config.CartRentalPrice,
+                }
             }
         },
         {
             header = "Wooden Cart 2",
             txt = "rent this cart for $"..Config.CartRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "CART04",
-					spawn = spawn,
-					price = Config.CartRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "CART04",
+                    spawn = spawn,
+                    price = Config.CartRentalPrice,
+                }
             }
         },
         {
             header = "Wooden Cart 3",
             txt = "rent this cart for $"..Config.CartRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "CART06",
-					spawn = spawn,
-					price = Config.CartRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "CART06",
+                    spawn = spawn,
+                    price = Config.CartRentalPrice,
+                }
             }
         },
         {
             header = "Luxurious Buggy 1",
             txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "BUGGY01",
-					spawn = spawn,
-					price = Config.BuggyRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "BUGGY01",
+                    spawn = spawn,
+                    price = Config.BuggyRentalPrice,
+                }
             }
         },
         {
             header = "Luxurious Buggy 2",
             txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "BUGGY02",
-					spawn = spawn,
-					price = Config.BuggyRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "BUGGY02",
+                    spawn = spawn,
+                    price = Config.BuggyRentalPrice,
+                }
             }
         },
         {
             header = "Luxurious Buggy 3",
             txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "BUGGY03",
-					spawn = spawn,
-					price = Config.BuggyRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "BUGGY03",
+                    spawn = spawn,
+                    price = Config.BuggyRentalPrice,
+                }
             }
         },
         {
             header = "Special Transport 1",
             txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "COACH2",
-					spawn = spawn,
-					price = Config.CoachRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "COACH2",
+                    spawn = spawn,
+                    price = Config.CoachRentalPrice,
+                }
             }
         },
         {
             header = "Special Transport 2",
             txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "COACH3",
-					spawn = spawn,
-					price = Config.CoachRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "COACH3",
+                    spawn = spawn,
+                    price = Config.CoachRentalPrice,
+                }
             }
         },
         {
             header = "Special Transport 3",
             txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "COACH4",
-					spawn = spawn,
-					price = Config.CoachRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "COACH4",
+                    spawn = spawn,
+                    price = Config.CoachRentalPrice,
+                }
             }
         },
         {
             header = "Special Transport 4",
             txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "COACH5",
-					spawn = spawn,
-					price = Config.CoachRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "COACH5",
+                    spawn = spawn,
+                    price = Config.CoachRentalPrice,
+                }
             }
         },
         {
             header = "Special Transport 5",
             txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
-			icon = "fas fa-file-invoice-dollar",
+            icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
-				isServer = false,
-				args = {
-					model = "COACH6",
-					spawn = spawn,
-					price = Config.CoachRentalPrice,
-				}
+                isServer = false,
+                args = {
+                    model = "COACH6",
+                    spawn = spawn,
+                    price = Config.CoachRentalPrice,
+                }
             }
         },
         {
@@ -202,8 +215,8 @@ end)
 
 RegisterNetEvent('rsg-rental:client:vehiclespawn')
 AddEventHandler('rsg-rental:client:vehiclespawn', function(cart, spawn, price)
-	local coords = vector3(spawn.x, spawn.y, spawn.z)
-	local heading = spawn.w
+    local coords = vector3(spawn.x, spawn.y, spawn.z)
+    local heading = spawn.w
     local ped = PlayerPedId()
     local hash = GetHashKey(cart)
     local veh = GetVehiclePedIsUsing(ped)
@@ -215,15 +228,15 @@ AddEventHandler('rsg-rental:client:vehiclespawn', function(cart, spawn, price)
     if IsPedInAnyVehicle(ped) then
         DeleteVehicle(veh)
     end
-	QRCore.Functions.Progressbar('rent-cart', 'Getting cart from the store..', Config.WaitTime, false, true, {
-		disableMovement = true,
-		disableCarMovement = false,
-		disableMouse = false,
-		disableCombat = true,
-	}, {}, {}, {}, function() -- Done
-		local vehicle = CreateVehicle(hash, coords, heading, true, false)
-		TaskWarpPedIntoVehicle(ped, vehicle, -1)
-		SetModelAsNoLongerNeeded(hash)
-		TriggerServerEvent('rsg-rental:server:doRent', price)
-	end)
+    QRCore.Functions.Progressbar('rent-cart', 'Getting cart from the store..', Config.WaitTime, false, true, {
+        disableMovement = true,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        local vehicle = CreateVehicle(hash, coords, heading, true, false)
+        TaskWarpPedIntoVehicle(ped, vehicle, -1)
+        SetModelAsNoLongerNeeded(hash)
+        TriggerServerEvent('rsg-rental:server:doRent', price)
+    end)
 end)

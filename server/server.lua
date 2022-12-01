@@ -9,7 +9,7 @@ AddEventHandler('rsg-rental:server:attemptPurchase', function(model, spawn, pric
     if cash >= price then
         TriggerClientEvent('rsg-rental:client:vehiclespawn', source, model, spawn, price)
     else
-		TriggerClientEvent('QRCore:Notify', src, 'Not enough cash to do that!', "error")
+        TriggerClientEvent('QRCore:Notify', src, 'Not enough cash to do that!', "error")
     end
 end)
 

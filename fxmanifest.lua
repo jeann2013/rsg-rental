@@ -6,7 +6,7 @@ author 'RexShack#3041'
 description 'rsg-rental'
 
 client_scripts {
-  'client/client.lua'
+    'client/client.lua'
 }
 
 server_scripts {
@@ -14,7 +14,7 @@ server_scripts {
 }
 
 shared_scripts {
-	'config.lua',
+    'config.lua',
 }
 
 dependency 'qr-core'
