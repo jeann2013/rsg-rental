@@ -72,15 +72,3 @@ Config.RentalLocations = {
 		showblip = true
 	},
 }
-
-Config.CartRentalNpc = {
-	[1] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(-361.3422, 802.80828, 116.25799 -1), ["Heading"] = 297.24212 }, -- valentine
-	[2] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(1325.3746, -1348.853, 78.371551 -1), ["Heading"] =  230.81137 }, -- rhodes
-	[3] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(2497.6079, -1445.624, 46.326683 -1), ["Heading"] =  82.215194 }, -- stdenis
-	[4] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(2983.6984, 589.40747, 44.193241 -1), ["Heading"] =  140.94485 }, -- vanhorn
-	[5] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(2984.9604, 1421.2645, 44.958709 -1), ["Heading"] =  180.149 }, -- annesburg
-	[6] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(-1779.948, -441.1491, 155.0829 -1), ["Heading"] =  72.061584 }, -- strawberry
-	[7] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(-855.3488, -1360.902, 43.630363 -1), ["Heading"] =  274.14013 }, -- blackwater
-	[8] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(-3676.465, -2605.684, -13.72589 -1), ["Heading"] =  184.95193 }, -- armadillo
-	[9] = { ["Model"] = "CS_BivCoachDriver", ["Pos"] = vector3(-5512.892, -2930.157, -2.305891 -1), ["Heading"] =  149.23376 }, -- tumbleweed
-}
