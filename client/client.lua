@@ -1,4 +1,4 @@
-local QRCore = exports['qr-core']:GetCoreObject()
+local RSGCore = exports['rsg-core']:GetCoreObject()
 local rentals
 local name = nil
 local location = nil
@@ -10,7 +10,7 @@ Citizen.CreateThread(function()
         local name = v.name
         local location = v.location
         local spawn = v.spawn
-        exports['qr-core']:createPrompt(v.location, v.coords, QRCore.Shared.Keybinds['J'], 'Open ' .. v.name, {
+        exports['rsg-core']:createPrompt(v.location, v.coords, RSGCore.Shared.Keybinds['J'], 'Open ' .. v.name, {
             type = 'client',
             event = 'rsg-rental:client:menu',
             args = { name, location, spawn },
@@ -39,7 +39,7 @@ end)
 
 -- rental menu
 RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
-    exports['qr-menu']:openMenu({
+    exports['rsg-menu']:openMenu({
         {
             header = name,
             isMenuHeader = true,
@@ -202,7 +202,7 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             header = "Close Menu",
             txt = '',
             params = {
-                event = 'qr-menu:closeMenu',
+                event = 'rsg-menu:closeMenu',
             }
         },
     })
@@ -228,7 +228,7 @@ AddEventHandler('rsg-rental:client:vehiclespawn', function(cart, spawn, price)
     if IsPedInAnyVehicle(ped) then
         DeleteVehicle(veh)
     end
-    QRCore.Functions.Progressbar('rent-cart', 'Getting cart from the store..', Config.WaitTime, false, true, {
+    RSGCore.Functions.Progressbar('rent-cart', 'Getting cart from the store..', Config.WaitTime, false, true, {
         disableMovement = true,
         disableCarMovement = false,
         disableMouse = false,
