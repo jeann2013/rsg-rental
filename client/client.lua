@@ -10,7 +10,7 @@ Citizen.CreateThread(function()
         local name = v.name
         local location = v.location
         local spawn = v.spawn
-        exports['rsg-core']:createPrompt(v.location, v.coords, RSGCore.Shared.Keybinds['J'], 'Open ' .. v.name, {
+        exports['rsg-core']:createPrompt(v.location, v.coords, RSGCore.Shared.Keybinds['J'],  Lang:t('menu.open') .. v.name, {
             type = 'client',
             event = 'rsg-rental:client:menu',
             args = { name, location, spawn },
@@ -32,8 +32,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             isMenuHeader = true,
         },
         {
-            header = "Wooden Cart 1",
-            txt = "rent this cart for $"..Config.CartRentalPrice..".00",
+            header =  Lang:t('menu.wooden_cart',{numbercart = 1}),
+            txt = Lang:t('text.rent_this_cart_for')..Config.CartRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -46,8 +46,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Wooden Cart 2",
-            txt = "rent this cart for $"..Config.CartRentalPrice..".00",
+            header =  Lang:t('menu.wooden_cart',{numbercart = 2}),
+            txt = Lang:t('text.rent_this_cart_for')..Config.CartRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -60,8 +60,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Wooden Cart 3",
-            txt = "rent this cart for $"..Config.CartRentalPrice..".00",
+            header =  Lang:t('menu.wooden_cart',{numbercart = 3}),
+            txt = Lang:t('text.rent_this_cart_for')..Config.CartRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -74,8 +74,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Luxurious Buggy 1",
-            txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
+            header = Lang:t('menu.luxurious_buggy',{numberbuggy = 1}),
+            txt = Lang:t('text.rent_this_luxurious_buggy_for')..Config.BuggyRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -88,8 +88,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Luxurious Buggy 2",
-            txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
+            header = Lang:t('menu.luxurious_buggy',{numberbuggy = 2}),
+            txt = Lang:t('text.rent_this_luxurious_buggy_for')..Config.BuggyRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -102,8 +102,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Luxurious Buggy 3",
-            txt = "rent this cart for $"..Config.BuggyRentalPrice..".00",
+            header = Lang:t('menu.luxurious_buggy',{numberbuggy = 3}),
+            txt = Lang:t('text.rent_this_luxurious_buggy_for')..Config.BuggyRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -116,8 +116,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Special Transport 1",
-            txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
+            header = Lang:t('menu.special_transport',{numbertransport = 1}),
+            txt = Lang:t('text.rent_this_transport_for')..Config.CoachRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -130,8 +130,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Special Transport 2",
-            txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
+            header =  Lang:t('menu.special_transport',{numbertransport = 2}),
+            txt = Lang:t('text.rent_this_transport_for')..Config.CoachRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -144,8 +144,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Special Transport 3",
-            txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
+            header = Lang:t('menu.special_transport',{numbertransport = 3}),
+            txt = Lang:t('text.rent_this_transport_for')..Config.CoachRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -158,8 +158,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Special Transport 4",
-            txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
+            header = Lang:t('menu.special_transport',{numbertransport = 4}),
+            txt = Lang:t('text.rent_this_transport_for')..Config.CoachRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -172,8 +172,8 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Special Transport 5",
-            txt = "rent this cart for $"..Config.CoachRentalPrice..".00",
+            header = Lang:t('menu.special_transport',{numbertransport = 5}),
+            txt = Lang:t('text.rent_this_transport_for')..Config.CoachRentalPrice..".00",
             icon = "fas fa-file-invoice-dollar",
             params = {
                 event = 'rsg-rental:client:attemptvehiclespawn',
@@ -186,7 +186,7 @@ RegisterNetEvent('rsg-rental:client:menu', function(name, location, spawn)
             }
         },
         {
-            header = "Close Menu",
+            header =  Lang:t('menu.close_menu'),
             txt = '',
             params = {
                 event = 'rsg-menu:closeMenu',
@@ -215,7 +215,7 @@ AddEventHandler('rsg-rental:client:vehiclespawn', function(cart, spawn, price)
     if IsPedInAnyVehicle(ped) then
         DeleteVehicle(veh)
     end
-    RSGCore.Functions.Progressbar('rent-cart', 'Getting cart from the store..', Config.WaitTime, false, true, {
+    RSGCore.Functions.Progressbar('rent-cart', Lang:t('progressbar.getting_cart_from_the_store'), Config.WaitTime, false, true, {
         disableMovement = true,
         disableCarMovement = false,
         disableMouse = false,

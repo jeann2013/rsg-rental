@@ -9,7 +9,7 @@ AddEventHandler('rsg-rental:server:attemptPurchase', function(model, spawn, pric
     if cash >= price then
         TriggerClientEvent('rsg-rental:client:vehiclespawn', source, model, spawn, price)
     else
-        TriggerClientEvent('RSGCore:Notify', src, 'Not enough cash to do that!', "error")
+        TriggerClientEvent('RSGCore:Notify', src, Lang:t('error.not_enough_cash_to_do_that'), "error")
     end
 end)
 
@@ -19,5 +19,5 @@ AddEventHandler('rsg-rental:server:doRent', function(price)
     local src = source
     local Player = RSGCore.Functions.GetPlayer(src)
     Player.Functions.RemoveMoney("cash", price, "rentals")
-    TriggerClientEvent('RSGCore:Notify', src, 'Rental money paid, enjoy..', "success")
+    TriggerClientEvent('RSGCore:Notify', src, Lang:t('success.rental_money_paid_enjoy'), "success")
 end)
